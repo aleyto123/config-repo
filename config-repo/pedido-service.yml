@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: pedido-service
+  cloud:
+    openfeign:
+      client:
+        config:
+          cliente-service:
+            connectTimeout: 1000
+            readTimeout: 2000
+          producto-service:
+            connectTimeout: 1000
+            readTimeout: 15000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+mensaje:
+  texto: Configuracion obtenida desde Config Server para Pedido Service
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      clienteService:
+        registerHealthIndicator: true
+        slidingWindowSize: 5
+        minimumNumberOfCalls: 3
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+      productoService:
+        registerHealthIndicator: true
+        slidingWindowSize: 5
+        minimumNumberOfCalls: 3
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+  retry:
+    instances:
+      clienteRetry:
+        maxAttempts: 3
+        waitDuration: 1s
+  bulkhead:
+    instances:
+      productoBulkhead:
+        maxConcurrentCalls: 2
+        maxWaitDuration: 1s
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,circuitbreakers,retries,bulkheads

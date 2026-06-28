@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: categoria-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+mensaje:
+  texto: Configuracion obtenida desde Config Server para Categoria Service
+
+demo:
+  categoria-delay-ms: 0
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka

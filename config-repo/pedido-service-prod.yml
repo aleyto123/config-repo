@@ -1,0 +1,8 @@
+server:
+  port: 9095
+
+spring:
+  datasource:
+    url: jdbc:mysql://servidor/bd_pedido_prod
+    username: root
+    password: ${MYSQL_PASSWORD:}

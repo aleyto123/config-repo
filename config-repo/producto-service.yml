@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: producto-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+mensaje:
+  texto: Configuracion obtenida desde Config Server para Producto Service
+
+demo:
+  producto-delay-ms: 10000
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      categoriaService:
+        registerHealthIndicator: true
+        slidingWindowSize: 5
+        minimumNumberOfCalls: 3
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+  retry:
+    instances:
+      categoriaRetry:
+        maxAttempts: 3
+        waitDuration: 2s
+  bulkhead:
+    instances:
+      categoriaBulkhead:
+        maxConcurrentCalls: 2
+        maxWaitDuration: 1s
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,circuitbreakers,retries,bulkheads
