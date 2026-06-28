@@ -32,13 +32,7 @@ CREATE DATABASE IF NOT EXISTS bd_pedido_dev;
 
 Tambien esta disponible en `microservicios/crear-bases.sql`.
 
-## Como probar
-
-La guia completa para sacar capturas esta en:
-
-`PRUEBAS-LAB14.md`
-
-Empieza levantando los servicios en este orden:
+Empiezar levantando los servicios por el siguiente orden:
 
 1. `config-server`
 2. `eureka-server`
@@ -46,8 +40,6 @@ Empieza levantando los servicios en este orden:
 4. `producto-service`
 5. `cliente-service`
 6. `pedido-service`
-
-Luego captura:
 
 - Config Server: `http://localhost:8888/producto-service/dev`
 - Eureka: `http://localhost:8761`
