@@ -1,6 +1,4 @@
-# Lab 14 - Config Server y Resilience4j
-
-Proyecto listo para demostrar:
+# Laboratorio 14 de Desarrollo de Aplicaciones Web
 
 - `config-server` en el puerto `8888`.
 - Repositorio Git local `config-repo` con configuraciones remotas.
