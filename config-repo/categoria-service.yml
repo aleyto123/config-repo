@@ -10,7 +10,7 @@ mensaje:
   texto: Configuracion obtenida desde Config Server para Categoria Service
 
 demo:
-  categoria-delay-ms: 0
+  categoria-delay-ms: 10000
 
 eureka:
   client:

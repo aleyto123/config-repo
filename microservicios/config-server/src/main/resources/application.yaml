@@ -8,5 +8,6 @@ spring:
     config:
       server:
         git:
-          uri: file:///C:/Users/Mauricio/Desktop/tecsupp/lab14web/config-repo
+          uri: file:///C:/Users/ronyc/git/config-repo
           default-label: main
+          search-paths: config-repo
